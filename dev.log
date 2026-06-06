@@ -1,0 +1,83 @@
+
+> iqoo@0.1.0 dev
+> next dev
+
+▲ Next.js 16.2.7 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://10.2.204.179:3000
+- Environments: .env.local
+✓ Ready in 240ms
+
+ GET / 307 in 198ms (next.js: 90ms, application-code: 108ms)
+ GET / 307 in 109ms (next.js: 36ms, application-code: 72ms)
+ GET /dashboard/teacher 200 in 188ms (next.js: 91ms, proxy.ts: 41ms, application-code: 55ms)
+ GET /api/auth/me 200 in 89ms (next.js: 72ms, application-code: 17ms)
+[browser] Uncaught Error: Hydration failed because the server rendered HTML didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+      <LoadingBoundary name="teacher/" loading={null}>
+        <HTTPAccessFallbackBoundary notFound={undefined} forbidden={undefined} unauthorized={undefined}>
+          <RedirectBoundary>
+            <RedirectErrorBoundary router={{...}}>
+              <InnerLayoutRouter url="/dashboard..." tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} ...>
+                <SegmentViewNode type="page" pagePath="dashboard/...">
+                  <SegmentTrieNode>
+                  <ClientPageRoot Component={function TeacherDashboard} serverProvidedParams={{...}}>
+                    <TeacherDashboard params={Promise} searchParams={Promise}>
+                      <div className="min-h-scre...">
+                        <header className="bg-white b...">
+                          <div className="max-w-6xl ...">
+                            <div>
+                            <div className="flex items...">
++                             <span className="text-sm text-gray-600 hidden sm:block">
+-                             <button
+-                               type="button"
+-                               tabindex="0"
+-                               data-slot="button"
+-                               className={"group/button inline-flex shrink-0 items-center justify-center border bg-c..."}
+-                             >
+                              ...
+                        ...
+                ...
+              ...
+
+    at <unknown> (https://react.dev/link/hydration-mismatch)
+    at span (<anonymous>)
+    at TeacherDashboard (src/app/dashboard/teacher/page.tsx:102:15)
+  100 |           <div className="flex items-center gap-3">
+  101 |             {userName && (
+> 102 |               <span className="text-sm text-gray-600 hidden sm:block">Hi, {userName.split...
+      |               ^
+  103 |             )}
+  104 |             <Button
+  105 |               variant="outline"
+ GET /api/classrooms 200 in 488ms (next.js: 377ms, application-code: 111ms)
+ POST /api/auth/logout 200 in 65ms (next.js: 58ms, application-code: 7ms)
+ GET /auth/login 200 in 35ms (next.js: 19ms, proxy.ts: 4ms, application-code: 13ms)
+ POST /api/auth/login 200 in 303ms (next.js: 157ms, application-code: 145ms)
+ GET /dashboard/teacher 200 in 27ms (next.js: 3ms, proxy.ts: 4ms, application-code: 19ms)
+ GET /api/auth/me 200 in 17ms (next.js: 9ms, application-code: 8ms)
+ GET /api/classrooms 200 in 26ms (next.js: 15ms, application-code: 12ms)
+ GET /dashboard/teacher/classroom/6a23f5802b1a02410bf0fd4c 200 in 476ms (next.js: 457ms, proxy.ts: 6ms, application-code: 13ms)
+ GET /api/classrooms/6a23f5802b1a02410bf0fd4c 200 in 949ms (next.js: 929ms, application-code: 20ms)
+ GET /api/classrooms/6a23f5802b1a02410bf0fd4c 200 in 13ms (next.js: 2ms, application-code: 11ms)
+ GET /api/classrooms/6a23f5802b1a02410bf0fd4c/announcements 200 in 649ms (next.js: 635ms, application-code: 14ms)
+ GET /api/classrooms/6a23f5802b1a02410bf0fd4c/quizzes 200 in 604ms (next.js: 586ms, application-code: 18ms)
+ GET /dashboard/teacher/classroom/6a23f5802b1a02410bf0fd4c/quiz/6a23f88283fd3169fadc8e9d 200 in 390ms (next.js: 358ms, proxy.ts: 16ms, application-code: 16ms)
+ GET /api/quizzes/6a23f88283fd3169fadc8e9d 200 in 924ms (next.js: 907ms, application-code: 17ms)
+ GET /api/quizzes/6a23f88283fd3169fadc8e9d 200 in 11ms (next.js: 3ms, application-code: 8ms)
+ GET /dashboard/teacher/classroom/6a23f5802b1a02410bf0fd4c 200 in 288ms (next.js: 73ms, proxy.ts: 126ms, application-code: 89ms)
+ GET /api/classrooms/6a23f5802b1a02410bf0fd4c 200 in 63ms (next.js: 14ms, application-code: 49ms)
+ GET /api/classrooms/6a23f5802b1a02410bf0fd4c 200 in 15ms (next.js: 6ms, application-code: 9ms)
+ GET /api/classrooms/6a23f5802b1a02410bf0fd4c/announcements 200 in 41ms (next.js: 12ms, application-code: 29ms)
